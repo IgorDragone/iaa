@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<smile version="1.0" id="Network1" numsamples="10000" discsamples="10000">
+	<nodes>
+		<cpt id="Estado_actual">
+			<state id="Atacar" />
+			<state id="recoger_arma" />
+			<state id="recoger_energ_a" />
+			<state id="explorar" />
+			<state id="huir" />
+			<state id="detecta_peligro" />
+			<probabilities>0.4 0.2 0.2 0.1 0.05 0.05</probabilities>
+		</cpt>
+		<cpt id="Copy_of_Estado_actual">
+			<state id="Atacar" />
+			<state id="recoger_arma" />
+			<state id="recoger_energ_a" />
+			<state id="explorar" />
+			<state id="huir" />
+			<state id="detecta_peligro" />
+			<parents>Estado_actual</parents>
+			<probabilities>0.7 0.15 0.05 0.05 0.03 0.02 0.3 0.4 0.15 0.1 0.03 0.02 0.2 0.1 0.4 0.15 0.1 0.05 0.3 0.2 0.1 0.3 0.05 0.05 0.5 0.2 0.1 0.1 0.05 0.05 0.6 0.15 0.1 0.05 0.05 0.05</probabilities>
+		</cpt>
+		<cpt id="H">
+			<state id="si" />
+			<state id="no" />
+			<parents>Copy_of_Estado_actual</parents>
+			<probabilities>0.8 0.2 0.5 0.5 0.2 0.8 0.5 0.5 0.2 0.8 0.8 0.2</probabilities>
+		</cpt>
+		<cpt id="Copy_of_H">
+			<state id="si" />
+			<state id="no" />
+			<parents>Copy_of_Estado_actual</parents>
+			<probabilities>0.8 0.2 0.7 0.3 0.6 0.4 0.7 0.3 0.2 0.8 0.3 0.7</probabilities>
+		</cpt>
+		<cpt id="Copy_2_of_H">
+			<state id="si" />
+			<state id="no" />
+			<parents>Copy_of_Estado_actual</parents>
+			<probabilities>0.9 0.1 0.1 0.9 0.5 0.5 0.5 0.5 0.3 0.7 0.8 0.2</probabilities>
+		</cpt>
+		<cpt id="Copy_3_of_H">
+			<state id="si" />
+			<state id="no" />
+			<parents>Copy_of_Estado_actual</parents>
+			<probabilities>0.8 0.2 0.9 0.1 0.7 0.3 0.7 0.3 0.1 0.9 0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Copy_4_of_H">
+			<state id="si" />
+			<state id="no" />
+			<parents>Copy_of_Estado_actual</parents>
+			<probabilities>0.6 0.4 0.9 0.1 0.5 0.5 0.8 0.2 0.2 0.8 0.3 0.7</probabilities>
+		</cpt>
+		<cpt id="Copy_5_of_H">
+			<state id="si" />
+			<state id="no" />
+			<parents>Copy_of_Estado_actual</parents>
+			<probabilities>0.4 0.6 0.7 0.3 0.6 0.4 0.5 0.5 0.5 0.5 0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Copy_6_of_H">
+			<state id="si" />
+			<state id="no" />
+			<parents>Copy_of_Estado_actual</parents>
+			<probabilities>0.6 0.4 0.5 0.5 0.7 0.3 0.7 0.3 0.1 0.9 0.5 0.5</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.0.5406.0" name="bot" faultnameformat="user">
+			<node id="Estado_actual">
+				<name>Estado actual</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>397 109 473 156</position>
+				<barchart active="true" width="128" height="126" />
+			</node>
+			<node id="Copy_of_Estado_actual">
+				<name>Estado siguiente</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>402 291 478 338</position>
+				<barchart active="true" width="128" height="126" />
+			</node>
+			<node id="H">
+				<name>H</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>81 451 134 487</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Copy_of_H">
+				<name>HN</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>243 633 287 664</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Copy_2_of_H">
+				<name>W</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>154 536 205 573</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Copy_3_of_H">
+				<name>NE</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>600 624 645 653</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Copy_4_of_H">
+				<name>PW</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>694 522 745 558</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Copy_5_of_H">
+				<name>OW</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>412 562 477 600</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Copy_6_of_H">
+				<name>PH</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>764 439 815 475</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+		</genie>
+	</extensions>
+</smile>
