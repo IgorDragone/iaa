@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <smile version="1.0" id="Network1" numsamples="10000" discsamples="10000">
 	<nodes>
-		<cpt id="Estado_actual">
+		<cpt id="St">
 			<state id="Atacar" />
-			<state id="recoger_arma" />
-			<state id="recoger_energ_a" />
-			<state id="explorar" />
-			<state id="huir" />
-			<state id="detecta_peligro" />
+			<state id="Recoger_Armas" />
+			<state id="Recoger_Energia" />
+			<state id="Explorar" />
+			<state id="Huir" />
+			<state id="Detectar_Peligro" />
 			<probabilities>0.4 0.2 0.2 0.1 0.05 0.05</probabilities>
 		</cpt>
-		<cpt id="Copy_of_Estado_actual">
+		<cpt id="st_1">
 			<state id="Atacar" />
-			<state id="recoger_arma" />
-			<state id="recoger_energ_a" />
-			<state id="explorar" />
-			<state id="huir" />
-			<state id="detecta_peligro" />
-			<parents>Estado_actual</parents>
+			<state id="Recoger_Armas" />
+			<state id="Recoger_Energia" />
+			<state id="Explorar" />
+			<state id="Huir" />
+			<state id="Detectar_Peligro" />
+			<parents>St</parents>
 			<probabilities>0.7 0.15 0.05 0.05 0.03 0.02 0.3 0.4 0.15 0.1 0.03 0.02 0.2 0.1 0.4 0.15 0.1 0.05 0.3 0.2 0.1 0.3 0.05 0.05 0.5 0.2 0.1 0.1 0.05 0.05 0.6 0.15 0.1 0.05 0.05 0.05</probabilities>
 		</cpt>
 		<cpt id="H">
-			<state id="si" />
-			<state id="no" />
-			<parents>Copy_of_Estado_actual</parents>
+			<state id="Alta" />
+			<state id="Baja" />
+			<parents>st_1</parents>
 			<probabilities>0.8 0.2 0.5 0.5 0.2 0.8 0.5 0.5 0.2 0.8 0.8 0.2</probabilities>
 		</cpt>
-		<cpt id="Copy_of_H">
+		<cpt id="HN">
 			<state id="si" />
 			<state id="no" />
-			<parents>Copy_of_Estado_actual</parents>
+			<parents>st_1</parents>
 			<probabilities>0.8 0.2 0.7 0.3 0.6 0.4 0.7 0.3 0.2 0.8 0.3 0.7</probabilities>
 		</cpt>
-		<cpt id="Copy_2_of_H">
-			<state id="si" />
-			<state id="no" />
-			<parents>Copy_of_Estado_actual</parents>
+		<cpt id="W">
+			<state id="armado" />
+			<state id="desarmado" />
+			<parents>st_1</parents>
 			<probabilities>0.9 0.1 0.1 0.9 0.5 0.5 0.5 0.5 0.3 0.7 0.8 0.2</probabilities>
 		</cpt>
-		<cpt id="Copy_3_of_H">
+		<cpt id="NE">
 			<state id="si" />
 			<state id="no" />
-			<parents>Copy_of_Estado_actual</parents>
+			<parents>st_1</parents>
 			<probabilities>0.8 0.2 0.9 0.1 0.7 0.3 0.7 0.3 0.1 0.9 0.5 0.5</probabilities>
 		</cpt>
-		<cpt id="Copy_4_of_H">
+		<cpt id="PW">
 			<state id="si" />
 			<state id="no" />
-			<parents>Copy_of_Estado_actual</parents>
+			<parents>st_1</parents>
 			<probabilities>0.6 0.4 0.9 0.1 0.5 0.5 0.8 0.2 0.2 0.8 0.3 0.7</probabilities>
 		</cpt>
-		<cpt id="Copy_5_of_H">
-			<state id="si" />
-			<state id="no" />
-			<parents>Copy_of_Estado_actual</parents>
+		<cpt id="OW">
+			<state id="armado" />
+			<state id="desarmado" />
+			<parents>st_1</parents>
 			<probabilities>0.4 0.6 0.7 0.3 0.6 0.4 0.5 0.5 0.5 0.5 0.5 0.5</probabilities>
 		</cpt>
-		<cpt id="Copy_6_of_H">
+		<cpt id="PH">
 			<state id="si" />
 			<state id="no" />
-			<parents>Copy_of_Estado_actual</parents>
+			<parents>st_1</parents>
 			<probabilities>0.6 0.4 0.5 0.5 0.7 0.3 0.7 0.3 0.1 0.9 0.5 0.5</probabilities>
 		</cpt>
 	</nodes>
 	<extensions>
 		<genie version="1.0" app="GeNIe 2.0.5406.0" name="bot" faultnameformat="user">
-			<node id="Estado_actual">
+			<node id="St">
 				<name>Estado actual</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
@@ -73,7 +73,7 @@
 				<position>397 109 473 156</position>
 				<barchart active="true" width="128" height="126" />
 			</node>
-			<node id="Copy_of_Estado_actual">
+			<node id="st_1">
 				<name>Estado siguiente</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
@@ -89,7 +89,7 @@
 				<position>81 451 134 487</position>
 				<barchart active="true" width="128" height="64" />
 			</node>
-			<node id="Copy_of_H">
+			<node id="HN">
 				<name>HN</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
@@ -97,7 +97,7 @@
 				<position>243 633 287 664</position>
 				<barchart active="true" width="128" height="64" />
 			</node>
-			<node id="Copy_2_of_H">
+			<node id="W">
 				<name>W</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
@@ -105,7 +105,7 @@
 				<position>154 536 205 573</position>
 				<barchart active="true" width="128" height="64" />
 			</node>
-			<node id="Copy_3_of_H">
+			<node id="NE">
 				<name>NE</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
@@ -113,7 +113,7 @@
 				<position>600 624 645 653</position>
 				<barchart active="true" width="128" height="64" />
 			</node>
-			<node id="Copy_4_of_H">
+			<node id="PW">
 				<name>PW</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
@@ -121,7 +121,7 @@
 				<position>694 522 745 558</position>
 				<barchart active="true" width="128" height="64" />
 			</node>
-			<node id="Copy_5_of_H">
+			<node id="OW">
 				<name>OW</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
@@ -129,7 +129,7 @@
 				<position>412 562 477 600</position>
 				<barchart active="true" width="128" height="64" />
 			</node>
-			<node id="Copy_6_of_H">
+			<node id="PH">
 				<name>PH</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
