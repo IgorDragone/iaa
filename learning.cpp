@@ -56,6 +56,36 @@ int main(int argc, char** argv) {
 	}
 	std::cout << "-------------------" << std::endl << std::endl;
 
+
+	std::cout << "Conditional Probability of St+1 given St" << std::endl;
+	std::cout << "-------------------" << std::endl;
+	std::cout << "Estado Actual   Atacar   Recoger_Armas   Recoger_Energia   Explorar   Huir   Detectar_Peligro" << std::endl;
+	for (const auto& action : actions) {
+		std::cout << action << ": ";
+		for (const auto& action2 : actions) {
+			std::vector<std::string> action_vector;
+			std::vector<int> action_vector_index;
+			int index = 0;
+			for (auto action: data["St"]) {
+			  if (action == action2) {
+			    action_vector.push_back(action);
+				action_vector_index.push_back(index);			
+			  }
+			  index++;
+			}
+			double probability = 0;
+			for (auto index: action_vector_index) {
+				if (data["st_1"][index] == action) {
+					probability += 1;
+				}
+			}
+			probability /= action_vector.size();
+			std::cout << probability << "   ";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << "-------------------" << std::endl << std::endl;
+
 	std::vector <std::string> health_parameters{"Alta", "Baja"};
 	std::cout << "Probability of H" << std::endl;
 	std::cout << "-------------------" << std::endl;
@@ -91,4 +121,34 @@ int main(int argc, char** argv) {
 		}
 		std::cout << "-------------------" << std::endl << std::endl;
 	}
+
+
+	std::cout << "Probability of H given st_1" << std::endl;
+	std::cout << "-------------------" << std::endl;
+	std::cout << "Estado Actual   Atacar   Recoger_Armas   Recoger_Energia   Explorar   Huir   Detectar_Peligro" << std::endl;
+	for (const auto& health : health_parameters) {
+		std::cout << health << ": ";
+		for (const auto& action : actions) {
+			std::vector<std::string> action_vector;
+			std::vector<int> action_vector_index;
+			int index = 0;
+			for (auto action2: data["st_1"]) {
+			  if (action2 == action) {
+			    action_vector.push_back(action2);
+				action_vector_index.push_back(index);			
+			  }
+			  index++;
+			}
+			double probability = 0;
+			for (auto index: action_vector_index) {
+				if (data["H"][index] == health) {
+					probability += 1;
+				}
+			}
+			probability /= action_vector.size();
+			std::cout << probability << "   ";
+		}
+		std::cout << std::endl;
+	}
+
 }
