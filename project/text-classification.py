@@ -40,8 +40,8 @@ def preprocess_text(word):
     word = word.lower()
 
     # # # Correct the spelling
-    # word = spell.correction(word)
-    # if word == None : return None
+    word = spell.correction(word)
+    if word == None : return None
 
     # # stem the word
     # word = stemmer.stem(word)
@@ -111,6 +111,8 @@ def build_language_model(corpus_file, vocabulary_file):
     # Initialize the language model
     language_model = {word: 0 for word in vocabulary}
 
+    unknown_word_count = 0
+
     # Read the corpus
     with open(corpus_file, 'r') as f:
         for line in f:
@@ -118,6 +120,12 @@ def build_language_model(corpus_file, vocabulary_file):
             for word in words:
                 if word in language_model:
                     language_model[word] += 1
+                else:
+                    unknown_word_count += 1
+    
+    if unknown_word_count > 0:
+        language_model['<UNK>'] = unknown_word_count
+                
 
     return language_model
 
@@ -129,15 +137,10 @@ def write_language_model(language_model, file):
     with open(f'{output_file}_language_model.txt', 'w') as f:
         f.write(f'Numero de correos del corpus: {number_of_emails}\n')
         f.write(f'Numero de palabras del corpus: {number_of_words}\n')
-        unknown_words = 0
         for word, count in language_model.items():
-            if count == 0:
-                unknown_words += 1
-            else:
-                log_prob = math.log((count + 1)/(number_of_words + len(language_model)))
-                f.write(f'Palabra: {word}, Frecuencia: {count} LogProb: {log_prob}\n')
+            log_prob = math.log((count + 1)/(number_of_words + len(language_model)))
+            f.write(f'Palabra: {word}, Frecuencia: {count} LogProb: {log_prob}\n')
         
-        f.write(f'Palabra: <UNKNOWN>, Frecuencia: {unknown_words} LogProb: {math.log(1/(number_of_words + len(language_model)))}\n')
         
 
 def main():
