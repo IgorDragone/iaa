@@ -40,8 +40,8 @@ def preprocess_text(word):
     word = word.lower()
 
     # # # Correct the spelling
-    word = spell.correction(word)
-    if word == None : return None
+    # word = spell.correction(word)
+    # if word == None : return None
 
     # # stem the word
     # word = stemmer.stem(word)
@@ -88,8 +88,9 @@ def divide_files(file_path):
             # Tokenize the text
             mail_type = row[2]
             text = row[1]
+            tokens = word_tokenize(text)  # Assuming the text is in the second column
             preprocessed_text = ''
-            for word in text.split():
+            for word in tokens:
                 prepocessed_word = preprocess_text(word)
                 if prepocessed_word:
                     preprocessed_text += f'{prepocessed_word} '
